@@ -6,10 +6,11 @@ const db = {
     user:process.env.USER,
     pass:process.env.PASS,
     port: process.env.PORT,
-    database: process.env.DB    
+    database: process.env.DB ,
+    host: process.env.HOST,   
 }
 
-const mySequelize = new Sequelize(`${db.dialect}://${db.user}:${db.pass}@localhost:${db.port}/${db.database}`);
+const mySequelize = new Sequelize(`${db.dialect}://${db.user}:${db.pass}@${db.host}:${db.port}/${db.database}`);
 
 try {
     mySequelize.authenticate();
