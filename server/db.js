@@ -10,7 +10,8 @@ const db = {
     host: process.env.HOST,   
 }
 
-const mySequelize = new Sequelize(`${db.dialect}://${db.user}:${db.pass}@${db.host}:${db.port}/${db.database}`);
+//const mySequelize = new Sequelize(`${db.dialect}://${db.user}:${db.pass}@${db.host}:${db.port}/${db.database}`);
+const mySequelize = new Sequelize(`${process.env.INTERNAL_URL}`);
 
 try {
     mySequelize.authenticate();
